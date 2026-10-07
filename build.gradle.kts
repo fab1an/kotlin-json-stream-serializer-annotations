@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform").version("2.1.10")
+    kotlin("multiplatform").version("2.4.20")
     id("publishing-conventions")
     id("maven-publish")
 }
@@ -17,23 +17,21 @@ kotlin {
     iosX64()
     iosSimulatorArm64()
     macosArm64()
-    macosX64()
     linuxX64()
     linuxArm64()
     jvm {
-        withJava()
         testRuns.named("test") {
             executionTask.configure {
                 useJUnitPlatform()
             }
         }
     }
-    js(IR) {
+    js {
         nodejs()
     }
 
     compilerOptions {
-        jvmToolchain(21)
+        jvmToolchain(27)
     }
 
     applyDefaultHierarchyTemplate()
